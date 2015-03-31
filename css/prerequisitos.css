@@ -1,0 +1,65 @@
+.help-text {
+  width: 100%;
+  display: inline-block;
+  margin: 0;
+  padding: 1.5em 3em 0;
+  box-sizing: border-box;
+  color: #696969;
+}
+
+.graphLinks {
+  position: absolute;
+  z-index: 0;
+}
+
+.graphCourses {
+  position: absolute;
+  z-index: 1;
+}
+
+.perfil {
+  fill: white;
+}
+
+.perfil-text {
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+.course {
+  cursor: pointer;
+}
+
+.course rect {
+  /*fill: white;*/
+  fill: transparent;
+  /*stroke: #CCC;*/
+}
+
+.course:hover rect {
+  fill: white;
+  stroke: rgba(0,0,0,0.3);
+}
+
+.course text {
+  fill: #696969;
+  text-anchor: middle;
+}
+
+.course.selected rect {
+  fill: #225378 !important;
+}
+
+.course.selected text {
+  fill: white;
+}
+
+path.link {
+  fill: none;
+  /*stroke: #ACF0F2;*/
+  stroke-width: 3px;
+}
+
+path.link.selected {
+  stroke: #225378 !important;
+}

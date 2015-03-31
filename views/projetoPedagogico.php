@@ -16,10 +16,10 @@ session_start();
     <body>
          <header>
             <image id="menuBotao" src="../images/botMenu.png" onclick="mostraMenu();"/>
-           
+
                 <a href="../index.php"><image id="logoImg" src="../images/logo2.png"/></a>
                 <a  href="../login.php"><image id='loginBotao' src="../images/adminBT.png"/></a>
-                
+
         </header>
         <section id='corpo'>
             <ul id="menuBarra2" style="display:none;">
@@ -31,27 +31,27 @@ session_start();
             <article id='bloco'>
                 <div class="linhaView1">
                     <span ><b>Núcleos Disciplinares : </b>Clique, para ver os pre-requisitos das disciplinas deste Núcleo</span>
-                </div> 
+                </div>
                 <hr class="separadorView">
                 <div id="nucleos" class="linhaView" style="width: 100%;">
-                    
+
                 </div>
                 <div class="linhaView1">
                     <span ><b>Disciplinas disponíveis para o curso de Bacharelado em Ciências da Computação</b></span>
-                </div> 
-                <hr class="separadorView">
-                
-                <div id="materiasPeriodo" class="linhaView" style="width: 100%;">
-                    
                 </div>
-                
-                
+                <hr class="separadorView">
+
+                <div id="materiasPeriodo" class="linhaView" style="width: 100%;">
+
+                </div>
+
+
                 <div class="linhaView1">
                     <span ><b>Disciplinas Optativas :</b></span>
-                </div> 
+                </div>
                 <hr class="separadorView">
                 <div id="materiasOptativa" class="linhaView" style="width: 100%;">
-                    
+
                 </div>
                 <div class="linhaView1">
                 </div>
@@ -59,13 +59,12 @@ session_start();
                 <div class="linhaView" style="width: 100%;">
                     <div class="linhaView1">
                         <a href="../projetoPedagogicoBCCS-2010.pdf"  target="_blank" style="color: blue;"><image class="miniIcoPag" src="../images/paginaBt.png"/><b><span> Projeto Pedagógico BCCS 2010</span></b></a>
-                    </div> 
+                    </div>
                 </div>
-                
-                
-                
+
+
+
             </article>
-         <?php include '../templates/footer.php' ?>
         </section>
     </body>
 </html>
@@ -106,7 +105,7 @@ function mostraMenu(){
         color = r+','+g+','+b;
         return color;
     }
-    
+
     $(".botao").live({
        mouseenter: function () {
           $('#leg_'+this.id).show();
@@ -116,7 +115,7 @@ function mostraMenu(){
 
         }
 });
-    
+
  function abreDiciplina(codMat){
   $.ajax({//  ajax para mostrar a diciplina
         type: "POST",
@@ -127,7 +126,7 @@ function mostraMenu(){
         if(data['1'] ==  '1'){
               location.href="viewDisciplina.php";
         }
-    });  
+    });
  }
  function getWidth(cod){
      var offsetTrail = document.getElementById(cod);
@@ -150,7 +149,7 @@ function mostraMenu(){
      }
      return {left:offsetLeft, top:offsetTop};
  }
- 
+
  function drawSeta(x2,y2){
     pt1.x = x2;
     pt1.y = y2;
@@ -178,7 +177,7 @@ function mostraMenu(){
                     if(pre.codMatPos == disc['cod']){
                         x1 = getPosicaoElm(disc['cod']).left + 7;
                         y1 = getPosicaoElm(disc['cod']).top-215;
-                         
+
                         x2 = getPosicaoElm(pre.codMatPre).left;
                         var largura = getWidth(pre.codMatPre);
                         x2 += largura - 2;
@@ -204,7 +203,7 @@ function mostraMenu(){
         }
     });
  }
- 
+
  function listaMaterias(){
       $.ajax({//  ajax para mostrar as diciplinas por periodos
             type: "POST",
@@ -219,7 +218,7 @@ function mostraMenu(){
            $.each(data, function(i, item) {
                     disciplinas[a] = new Array();
                     html+='<div id="perfil_'+ i +'" class="perfilView">';
-                    html+='<div class="linhaView3"><b>Perfil '+ i +'</b></div>';            
+                    html+='<div class="linhaView3"><b>Perfil '+ i +'</b></div>';
                 $.each(item, function(j, item2) {
                     disciplinas[a][b] = new Array();
                     disciplinas[a][b]['cod'] = item2.cod;
@@ -238,11 +237,11 @@ function mostraMenu(){
            $('#materiasPeriodo').html(html);
    });
  }
-    
+
    $(document).ready(function(){
 
    listaMaterias();
-   
+
    $.ajax({//  ajax para mostrar as diciplinas optativas
             type: "POST",
             url: "../dao/listaMateriaOptativa.php",
@@ -252,7 +251,7 @@ function mostraMenu(){
             var html2="";
             html2+='<div class="OptativaView">';
             var $cont = 0;
-//             pre requisitos fortes  
+//             pre requisitos fortes
                 $.each(data, function(j, item2) {
                     html2+='<a href="#"><div class="OptativaViewBox botao" id="'+item2.cod+'" onclick="abreDiciplina('+item2.cod+')" style="background-color:rgba('+getRandomColor(item2.codNucleo)+',0.3);"><div id="leg_'+item2.cod+'" class="legenda"><span>'+item2.nome+'</span></div>';
                     html2+='<span>'+item2.codDisciplina+'</span>';
@@ -262,7 +261,7 @@ function mostraMenu(){
                 html2+='</table>';
                $('#materiasOptativa').html(html2);
            });
-           
+
     $.ajax({//  ajax para mostrar buscar os prerequisitos
         type: "POST",
         url: "../dao/buscaPreReqsitos.php",
@@ -276,20 +275,20 @@ function mostraMenu(){
                  preRequisitos[cont]['codMatPre'] = item.codMatPre;
                  cont++;
          });
-    });         
-           
+    });
+
     $.ajax({//  ajax para mostrar os nucleos
             type: "POST",
             url: "../dao/listaNucleo.php",
             dataType: "json",//tipo de retorno é um objeto json
             data: {}
         }).done(function(data){
-            
+
             var html2="";
             html2+='<div class="nucleosView">';
             html2+='<div id="voltar2" class="voltar voltarP" onclick="recarregar();"  style="background-color: red; color: #FFF; font-weight: bold; margin: 7px 15px 7px 10px !important;"><image class="imgBtvoltaP" src="../images/voltar.png"/></div>';
             var $cont = 0;
-//             pre requisitos fortes  
+//             pre requisitos fortes
                 $.each(data, function(j, item2) {
                     codNucleos[$cont] = item2.cod;
                     html2+='<div onclick="mostraPreReq('+item2.cod+');" class="nucleosViewBox" id="Nucl_'+item2.cod+'"  style="background-color:rgba('+getRandomColor(item2.cod)+',0.3);">';
@@ -299,7 +298,7 @@ function mostraMenu(){
                 });
                 html2+='</div>';
                $('#nucleos').html(html2);
-           });       
-       
+           });
+
    });
 </script>

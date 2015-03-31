@@ -15,7 +15,7 @@ session_start();
     <body>
          <header>
             <image id="menuBotao" src="../images/botMenu.png" onclick="mostraMenu();"/>
-           
+
                 <a href="../index.php"><image id="logoImg" src="../images/logo2.png"/></a>
                 <a  href="../login.php"><image id='loginBotao' src="../images/adminBT.png"/></a>
         </header>
@@ -28,10 +28,9 @@ session_start();
             </ul>
             <article id='bloco'>
             <div id="professores" style="width: 100%;">
-                    
-            </div>    
+
+            </div>
             </article>
-         <?php include '../templates/footer.php' ?>
         </section>
     </body>
 </html>
@@ -43,8 +42,8 @@ session_start();
             $('#menuBarra2').slideDown();
        }
    };
-   
-   
+
+
 function abreDiciplina(codMat){
   $.ajax({//  ajax para mostrar a diciplina
         type: "POST",
@@ -55,10 +54,10 @@ function abreDiciplina(codMat){
         if(data['1'] ==  '1'){
               location.href="viewDisciplina.php";
         }
-    });  
+    });
  }
    $(document).ready(function(){
-   
+
         $.ajax({//  ajax para mostrar as diciplinares de pre-requisitos
             type: "POST",
             url: "../dao/professoresDisciplinas.php",
@@ -112,7 +111,7 @@ function abreDiciplina(codMat){
                html2+='</div>'
               }
         $('#professores').html(html2);
-});     
-       
+});
+
    });
 </script>

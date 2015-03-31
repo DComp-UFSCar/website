@@ -15,7 +15,7 @@ session_start();
     <body>
          <header>
             <img id="menuBotao" src="../images/botMenu.png" onclick="mostraMenu();">
-           
+
                 <a href="../index.php"><image id="logoImg" src="../images/logo2.png"/></a>
                 <a  href="../login.php"><image id='loginBotao' src="../images/adminBT.png"/></a>
         </header>
@@ -29,12 +29,12 @@ session_start();
             <article id='bloco'>
             <div class="disciplinaView">
                 <div class="linhaView3">
-                    <span><b>Disciplina : </b> </span> 
-                </div> 
+                    <span><b>Disciplina : </b> </span>
+                </div>
                 <div class="linhaView2">
                         <?php echo  $_SESSION['disciplina']['cod2'].' - '.$_SESSION['disciplina']['codDisciplina'].' - '.$_SESSION['disciplina']['nome'];
                     if($_SESSION['disciplina']['optativa'] == 1){ echo '<b> - OPTATIVA</b>';}?><br>
-                </div> 
+                </div>
                 <div class="linhaView3">
                     <span><b>Ementa :</b></span>
                 </div>
@@ -47,11 +47,11 @@ session_start();
                 <div class="linhaView2" >
                     <p><?php echo  $_SESSION['disciplina']['objetivo'] ?></p>
                 </div>
-                
+
                 <div class="linhaView2">
                     <span ><b>Créditos teóricos : </b> <?php echo  $_SESSION['disciplina']['nCreditoTeorico'] ?><b> Créditos práticos : </b><?php echo  $_SESSION['disciplina']['nCreditopratico'] ?></span>
-                </div> 
-            </div> 
+                </div>
+            </div>
             <div class="disciplinaView">
                 <div class="linhaView3">
                     <span><b>Ofertas desta Disciplina:</b></span>
@@ -59,7 +59,7 @@ session_start();
                 <?php if(isset($_SESSION['ofertas'])){
                             foreach ($_SESSION['ofertas'] as $oferta) {
                                 echo '<div class="linhaView2">';
-                                echo '<span><b>Professor : </b>'.$oferta['professor']['nome'].'<br>'; 
+                                echo '<span><b>Professor : </b>'.$oferta['professor']['nome'].'<br>';
                                 echo  '<b>Turma : </b>'.$oferta['turma'].'<b> - Semestre : </b>'.$oferta['semestre'].'º <br>';
                                 foreach ($oferta['locais'] as $local) {
                                     echo  '<b>Dia : </b>'.$local['dia'].'<b> - Local : </b>' .$local['local'].'<b> - Horário : </b>'.$local['inicio'].' às '.$local['fim'].'<br>';
@@ -83,19 +83,19 @@ session_start();
                                   echo '<b> - Obrigatório </b>';
                               }
                               echo '</span><br>';
-                            echo '</div>'; 
-                         }  
+                            echo '</div>';
+                         }
                       }else{
                               echo'<div class="linhaView2"><span><b>Nenhum!</b></span></div>';
-                      } 
+                      }
                 ?>
             </div>
             <div class="disciplinaView">
                 <div class="linhaView3">
                     <span><b>Páginas desta Disciplina:</b></span>
-                </div>    
+                </div>
                 <?php if(isset($_SESSION['paginas'])){
-                        $i=1; 
+                        $i=1;
                         foreach ($_SESSION['paginas'] as $pagina) {
                             echo '<div class="linhaView2">';
                               echo  '<span><b>Página ';
@@ -105,7 +105,7 @@ session_start();
                                   echo $i;
                               }
                               echo  '</b> : '.$pagina['titulo'].'<image class="miniIcoPag" src="../images/ver.png" onclick="abrePagina('.$pagina['cod'].');"/>';
-                            echo '</span></div>'; 
+                            echo '</span></div>';
                             $i++;
                         }
                 }else{
@@ -126,7 +126,7 @@ session_start();
             $('#menuBarra2').slideDown();
        }
    };
-   
+
 function abrePagina(idPag){
     $.ajax({
             type: "POST",
@@ -138,9 +138,5 @@ function abrePagina(idPag){
               location.href="../views/viewPagina.php";
             }
     });
-}  
-   $(document).ready(function(){
-       
-       
-   });
+}
 </script>
