@@ -62,11 +62,11 @@ function drawGraph(error, data) {
     .attr('data-course', function (d) { return d.cod; })
     .attr('class', 'course')
     .on('click', function (d) {
-      var add = false;
       if (!this.classList.contains('selected')) {
-        add = true;
+        linkHighlightOn(graph, graphLinks, d.cod);
+      } else {
+        linkHighlightOff(graph, graphLinks, d.cod);
       }
-      toggleLinkHighlight(graph, graphLinks, d.cod, add);
     });
 
   var coursesRect = courses
@@ -133,28 +133,48 @@ function drawLinks(graph, graphLinks, error, link_data) {
   }
 }
 
-function toggleLinkHighlight(graph, graphLinks, courseId, add) {
+function linkHighlightOn(graph, graphLinks, courseId) {
   graph
     .selectAll('.course')
     .filter(function () { return this.dataset['course'] == courseId; })
     .each(function () {
-      if (add) {
-        this.classList.add('selected');
-      } else {
-        this.classList.remove('selected');
-      }
+      this.classList.add('selected');
     });
 
   graphLinks
     .selectAll('.link')
     .filter(function () { return this.dataset['course'] == courseId; })
     .each(function () {
-      if (add) {
-        this.classList.add('selected');
-      } else {
-        this.classList.remove('selected');
+      this.classList.add('selected');
+      linkHighlightOn(graph, graphLinks, this.dataset['pre']);
+    });
+}
+
+function linkHighlightOff(graph, graphLinks, courseId) {
+  graph
+    .selectAll('.course')
+    .filter(function () { return this.dataset['course'] == courseId; })
+    .each(function () {
+      if (!this.classList.contains('selected')) {
+        return;
       }
 
-      toggleLinkHighlight(graph, graphLinks, this.dataset['pre'], add);
+      this.classList.remove('selected');
+
+      graphLinks
+        .selectAll('.link')
+        .filter(function () { return this.dataset['course'] == courseId; })
+        .each(function () {
+          this.classList.remove('selected');
+          linkHighlightOff(graph, graphLinks, this.dataset['pre']);
+        });
+
+      graphLinks
+        .selectAll('.link')
+        .filter(function () { return this.dataset['pre'] == courseId; })
+        .each(function () {
+          this.classList.remove('selected');
+          linkHighlightOff(graph, graphLinks, this.dataset['course']);
+        });
     });
 }
