@@ -9,6 +9,12 @@ Site do curso de Ciência da Computação da UFSCar Sorocaba.
 - Gráfico de dependências de cursos
 - Acesso ao Projeto Pedagógico
 
+## Pré-requisitos
+
+- Apache
+- PHP
+- MySQL
+
 ## Colabore com o projeto!
 
 Para contribuir basta criar um Fork do projeto, alterar o código necessário e enviar via Pull Request.
