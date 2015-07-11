@@ -13,7 +13,7 @@
             if(!isset(self::$connection)) {
                 // Load configuration as an array. Use the actual location of your configuration file
                 $config = parse_ini_file(dirname(__FILE__).'/config.ini.php');
-                self::$connection = new mysqli('localhost', $config['username'], $config['password'], $config['dbname']);
+                self::$connection = new mysqli('127.0.0.1', $config['username'], $config['password'], $config['dbname']);
             }
 
             // If connection was not successful, handle the error
