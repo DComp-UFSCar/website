@@ -4,14 +4,14 @@
   <?php include "header.php"; ?>
 </head>
 <body>
-  <?php $menuSelected = 4; include "menu.php" ?>
+  <?php session_start(); $menuSelected = 4; include "menu.php" ?>
   <div id="content">
-    <header>Mapa UFSCar - Campus Sorocaba</header>
+    <header>Mapa UFSCar - Campus Sorocaba <?php include "login.php" ?> </header>
     <div id="main-content">
       <script type="text/javascript" src = "js\tooltip.js"></script>
 
       <map name ="mapa">
-        <area shape = "poly" coords = "575,345,609,314,639,346,607,376" onMouseOver = "toolTip('Area de Vivencia', 120, 100)" onMouseOut = "toolTip()" onMouseCLick = "<script type='text/javascript'>alert('teste');</script>">
+        <area shape = "poly" coords = "575,345,609,314,639,346,607,376" onMouseOver = "toolTip('Area de Vivencia', 120, 100)" onMouseOut = "toolTip()">
         <area shape = "poly" coords = "556,293,595,292,594,322,554,322" onMouseOver = "toolTip('Restaurante Universitario', 180, 100)" onMouseOut = "toolTip()" href="http://www2.ufscar.br/interface_frames/index.php?link=http://www.sorocaba.ufscar.br/ufscar/index.php?pg_id=28" target = "_blank">
         <area shape = "poly" coords = "505,288,524,303,525,326,505,325,493,299" onMouseOver = "toolTip('Biblioteca', 80, 100)" onMouseOut = "toolTip()" href="http://www.sorocaba.ufscar.br/bso/" target = "_blank">
         <area shape = "poly" coords = "589,234,629,234,630,257,591,257" onMouseOver = "toolTip('Quadra de Esportes', 120, 100)" onMouseOut = "toolTip()">

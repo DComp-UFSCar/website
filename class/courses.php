@@ -7,6 +7,7 @@
       $db = new Db();
       $query = "SELECT cod, cod2, nome, codDisciplina, perfil, codNucleo FROM materia WHERE ativo = 1 and optativa = 0 ORDER BY perfil, nome";
       $arr = $db->select($query);
+      
       $result = array();
 
       foreach ($arr as $data) {

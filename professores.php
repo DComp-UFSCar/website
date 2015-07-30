@@ -5,9 +5,9 @@
   <?php include "header.php"; ?>
 </head>
 <body>
-  <?php $menuSelected = 3; include "menu.php" ?>
+  <?php session_start(); $menuSelected = 3; include "menu.php" ?>
   <div id="content">
-    <header>Professores</header>
+    <header>Professores <?php include "login.php" ?></header>
     <div id="main-content" class="professors-main">
       <?php foreach (Professors::getAll() as $professor) { ?>
         <a href="professor.php?id=<?= $professor['cod'] ?>" class="professor-link">

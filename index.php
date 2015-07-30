@@ -5,9 +5,9 @@
   <?php include "header.php"; ?>
 </head>
 <body>
-  <?php include "menu.php" ?>
+  <?php session_start(); include "menu.php" ?>
   <div id="content">
-    <header>Disciplinas</header>
+    <header>Disciplinas <?php include "login.php" ?></header>
     <div id="main-content">
       <?php foreach (Courses::getCoursesByPerfil() as $perfil=>$perfilData) { ?>
         <section>

@@ -94,7 +94,7 @@ body {
   left: 300px;
   right: 0;
   line-height: 3.5em;
-  text-align: center;
+  text-align: justify;
   background-color: #EB7F00;
   color: #fff;
   font-size: 1.1em;
@@ -103,6 +103,14 @@ body {
   z-index: 10;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-left: 25px;
+}
+
+#login{
+  width: 30%;
+  height: 10%;
+  text-align: center;
+  float: right;
 }
 
 #main-content {
