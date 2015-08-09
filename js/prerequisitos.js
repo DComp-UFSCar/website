@@ -59,7 +59,7 @@ function drawGraph(error, data) {
     .enter()
     .append('g')
     .attr('transform', function (d, i) { return 'translate(0, ' + (i * courseLineHeight + 80) + ')'; })
-    .attr('data-course', function (d) { return d.cod; })
+    .attr('data-course', function (d) { return d.cpd; })
     .attr('class', 'course')
     .on('click', function (d) {
       if (!this.classList.contains('selected')) {

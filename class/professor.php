@@ -13,13 +13,13 @@
     public function loadById($id) {
       $db = new Db();
       $id = $db->quote($id);
-      $professor = $db->selectOne("SELECT * FROM professor WHERE cod = ".$id);
+      $professor = $db->selectOne("SELECT * FROM professor WHERE idprofessor = ".$id);
 
       $this->id   = $id;
       $this->nome = $professor["nome"];
       $this->foto = $professor["foto"];
-      $this->area = $professor["areaAtuacao"];
-      $this->site = $professor["pagPessoal"];
+      $this->area = $professor["area"];
+      $this->site = $professor["paginaPessoal"];
 
       $this->loadCourses();
     }

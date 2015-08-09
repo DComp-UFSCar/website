@@ -14,7 +14,7 @@
           <header>Perfil <?= $perfil ?></header>
           <ul>
             <?php foreach ($perfilData as $course) { ?>
-              <a href="disciplina.php?id=<?= $course['cod'] ?>"><li><?= $course['nome'] ?></li></a>
+              <a href="disciplina.php?id=<?= $course['id'] ?>"><li><?= $course['nome'] ?></li></a>
             <?php } ?>
           </ul>
         </section>
@@ -23,7 +23,7 @@
         <header>Optativas</header>
         <ul>
           <?php foreach (Courses::getOptinalCourses() as $course) { ?>
-            <a href="disciplina.php?id=<?= $course['cod'] ?>"><li><?= $course['nome'] ?></li></a>
+            <a href="disciplina.php?id=<?= $course['id'] ?>"><li><?= $course['nome'] ?></li></a>
           <?php } ?>
         </ul>
       </section>

@@ -37,7 +37,7 @@
     <!-- <li>Atividades Desenvolvidas</li> -->
     <?php 
       if (isset($_SESSION['ativo']) && $_SESSION['ativo'] == 1){
-        include("controle.html");
+        include("aux-files/controle.html");
       }
     ?>
     <a href="http://dcomp.sorocaba.ufscar.br/wp-content/docs/projetoPedagogicoBCCS-2010.pdf" target="_blank">

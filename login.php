@@ -3,7 +3,7 @@
       	if (isset($_SESSION['ativo']) && $_SESSION['ativo'] == 1){
       		echo "Bem Vindo ";
         	echo $_SESSION['user'];	
-          echo "<a href = 'logout.php'> Logout </a>";
+          echo "<a href = 'aux-files/logout.php'> Logout </a>";
       	}else{
       ?>
       <form  action = "controle.php" method = "post">
