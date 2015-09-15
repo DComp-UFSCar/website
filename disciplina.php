@@ -58,7 +58,7 @@
         <div class="oferta">
           <div class="oferta-title">Professor:</div>
           <div class="oferta-content">
-            <a href="professor.php?id=<?= $oferta['professor']['cod'] ?>">
+            <a href="professor.php?id=<?= $oferta['professor']['idprofessor'] ?>">
               <?= $oferta['professor']['nome'] ?>
             </a>
           </div><br>

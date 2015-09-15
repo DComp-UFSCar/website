@@ -5,10 +5,16 @@
 </head>
 <body>
   <?php
+
   session_start();
   require("db.php");
 
   $db = new Db();
+
+  if (isset($_POST['excluir'])){
+      include("new-dao/excluirProf.php");
+
+  }
 
   if (isset($_SESSION['idInicial'])){
     $_SESSION['id'] = $_SESSION['idInicial'];
@@ -29,7 +35,7 @@
               echo "<script>alert('Professor editado com sucesso')</script>";
               unset($_SESSION['editado']);
             }
-          }else if (isset($_POST['prof'])){ 
+          }else if (isset($_POST['prof']) && !isset($_POST['excluir'])){ 
             $nome = $db->quote($_POST['prof']);
             $prof = $db->select("SELECT * FROM professor WHERE nome = ".$nome);
             $_SESSION['idInicial'] = $_SESSION['id'];
@@ -47,10 +53,13 @@
           if (isset($_SESSION['editado'])){
             echo "<script>alert('Professor editado com sucesso')</script>";
             unset($_SESSION['editado']);
-          }
+          }else if (isset($_SESSION['excluido'])){
+              echo "<script>alert('Professor excluido com sucesso')</script>";
+              unset($_SESSION['excluido']);
+            }
            ?>
         </select>  
-        <input type = "submit" value = "selecionar">
+         <input type = "submit" name = "selecionar" value = "selecionar">-<input type = "submit" name = "excluir" value = "excluir">
       </form>
     <?php } ?>
     </div>

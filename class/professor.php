@@ -26,10 +26,10 @@
 
     public function loadCourses() {
       $db = new Db();
-      $this->courses = $db->select("SELECT o.cod, o.codMat, m.nome, o.turma, o.ano, o.semestre FROM ofertamateria o, materia m WHERE o.codProf = ".$this->id." AND m.cod = o.codMat");
+      $this->courses = $db->select("SELECT o.id, o.codMat, m.nome, o.turma, o.ano, o.semestre FROM oferta o, materia m WHERE o.codProf = ".$this->id." AND m.id = o.codMat");
 
       for ($i = 0; $i < count($this->courses); $i++) {
-        $this->courses[$i]['locais'] = $db->select("SELECT ofertahorario.codHorario, ofertahorario.codOferta, horario.dia, horario.inicio, horario.fim, horario.local FROM ofertahorario, horario WHERE ofertahorario.codOferta = '".$this->courses[$i]['cod']."' AND ofertahorario.codHorario = horario.cod");
+        $this->courses[$i]['locais'] = $db->select("SELECT ofertahorario.codHorario, ofertahorario.codOferta, horario.dia, horario.inicio, horario.fim, horario.local FROM ofertahorario, horario WHERE ofertahorario.codOferta = ".$this->courses[$i]['id']." AND ofertahorario.codHorario = horario.id");
       }
     }
   }

@@ -1,4 +1,4 @@
-        <?php 
+    <?php 
         if ($_SESSION["adm"] == 1){
         	$profs = $db->select("SELECT nome FROM professor"); 
 
@@ -11,7 +11,7 @@
             <option value = "<?= $value['nome'] ?>"><?= $value['nome'] ?></option>
           <?php } ?>
         </select>  
-        <input type = "submit" value = "selecionar">
+        <input type = "submit" name = "selecionar" value = "selecionar">-<input type = "submit" name = "excluir" value = "excluir">
       </form>
       <?php } ?>
 
@@ -56,7 +56,7 @@
 	        <?php } ?>
 	        <tr>
 	        	<td></td>
-	        	<td align = "right"><input type = "submit" value = "editar"></td>
+	        	<td align = "right"><input type = "submit" name = "editar" value = "editar"></td>
 	        </tr>
         </table>
       </form> 

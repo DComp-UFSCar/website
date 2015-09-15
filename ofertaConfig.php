@@ -11,8 +11,13 @@
   require("db.php");
 
   $db = new Db();
-
-  $ofertas = $db->select("SELECT * FROM oferta");
+  
+  if ($_SESSION['adm'] == 1){
+    $ofertas = $db->select("SELECT * FROM oferta");
+  }else{
+    $profAtual = $db->selectOne("SELECT idprofessor FROM professor where codUsuario = ".$_SESSION['id']);
+    $ofertas = $db->select("SELECT * FROM oferta where codProf = ".$profAtual['idprofessor']);
+  }
 
   $menuSelected = 5; include "menu.php" ?>
   <div id="content">
@@ -42,7 +47,13 @@
           </tr>
           <?php } ?>
         </table>
-        <a href="formOferta.php">Adicionar Oferta</a>
+        <?php 
+        if ($_SESSION['adm'] == 1){
+        ?>
+          <a href="formOferta.php">Adicionar Oferta</a>
+        <?php
+        }
+        ?>
       </section>
     </div>
   </div>

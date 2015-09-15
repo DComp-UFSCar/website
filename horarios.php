@@ -42,8 +42,13 @@
         </table>
         <?php }else{ 
                 echo "Nenhum horario cadastrado";
-        } ?>
+        }
+        if ($_SESSION['adm'] == 1){
+        ?>
         <a href="formHorarios.php">+ Horarios</a>
+        <?php
+        }
+        ?>
       </section>
     </div>
   </div>
