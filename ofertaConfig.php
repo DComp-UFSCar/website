@@ -32,6 +32,13 @@
           <th>Ano</th>
           <th>Semestre</th>
           <th>Horario</th>
+          <?php
+            if ($_SESSION['adm'] == 1){
+          ?>
+            <th>Ação</th>
+          <?php
+            }
+          ?>
           <?php foreach ($ofertas as $value) { ?>
           <tr>
             <?php
@@ -44,15 +51,22 @@
             <td><?= $value['ano'] ?></td>
             <td><?= $value['semestre'] ?></td>
             <td><a href="horarios.php?id=<?= $value['id'] ?>">Visualizar Horarios</a></td>
+            <?php 
+              if ($_SESSION['adm'] == 1){
+            ?>
+            <td><a href="editOfertaForm.php?id=<?= $value['id'] ?>">Editar</a> <a href="new-dao/excluirOferta.php?id=<?= $value['id'] ?>">Excluir</a></td>
+            <?php
+              }
+            ?>
           </tr>
           <?php } ?>
         </table>
         <?php 
-        if ($_SESSION['adm'] == 1){
+          if ($_SESSION['adm'] == 1){
         ?>
           <a href="formOferta.php">Adicionar Oferta</a>
         <?php
-        }
+          }
         ?>
       </section>
     </div>

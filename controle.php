@@ -30,7 +30,13 @@
       <section>
         <header>Painel administrativo dos professores</header>
         <ul>
-          <a href="ofertaConfig.php"><li>Configurações do Projeto Pedagogico</li></a>
+          <?php 
+            if ($_SESSION["adm"] == 0){
+          ?>
+            <a href="ofertaConfig.php"><li>Configurações do Projeto Pedagogico</li></a>
+          <?php }else{ ?>
+            <a href="pedagConfig.php"><li>Configurações do Projeto Pedagogico</li></a>
+          <?php } ?>
           <a href=""><li>Configurações das Paginas</li></a>
           <?php 
             if ($_SESSION["adm"] == 0){

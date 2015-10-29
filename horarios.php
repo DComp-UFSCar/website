@@ -31,23 +31,37 @@
           <th>Inicio</th>
           <th>Fim</th>
           <th>Local</th>
+          <?php
+            if ($_SESSION['adm'] == 1){
+          ?>
+            <th>Ação</th>
+          <?php
+            }
+          ?>
           <?php foreach ($horarios as $value) { ?>
           <tr>
             <td><?= $value['dia'] ?></td>
             <td><?= $value['inicio'] ?></td>
             <td><?= $value['fim'] ?></td>
             <td><?= $value['local'] ?></td>
+            <?php
+              if ($_SESSION['adm'] == 1){
+            ?>
+            <td><a href="editHorario.php?id=<?= $value['id'] ?>">Editar</a> <a href="new-dao/excluirHor.php?id=<?= $value['id'] ?>">Excluir</a></td>
+            <?php
+              }
+            ?>
           </tr>
           <?php } ?>
         </table>
         <?php }else{ 
                 echo "Nenhum horario cadastrado";
         }
-        if ($_SESSION['adm'] == 1){
+          if ($_SESSION['adm'] == 1){
         ?>
         <a href="formHorarios.php">+ Horarios</a>
         <?php
-        }
+          }
         ?>
       </section>
     </div>
