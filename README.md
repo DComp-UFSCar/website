@@ -1,6 +1,6 @@
-# Site UFSCar Sorocaba
+﻿# Site UFSCar Sorocaba
 
-Site do curso de Ciência da Computação da UFSCar Sorocaba. 
+Site do curso de Ciência da Computação - UFSCar Sorocaba. 
 
 ## Funcionalidades
 

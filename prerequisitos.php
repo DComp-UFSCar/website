@@ -7,9 +7,9 @@
   <script type="text/javascript" src="js/prerequisitos.js"></script>
 </head>
 <body>
-  <?php $menuSelected = 2; include "menu.php" ?>
+  <?php session_start(); $menuSelected = 2; include "menu.php" ?>
   <div id="content">
-    <header>Pré-requisitos</header>
+    <header>Pré-requisitos <?php include "login.php" ?></header>
     <div id="main-content">
       <p class="help-text">Selecione uma disciplina para ver seus pré-requisitos</p>
       <div class="graph"></div>

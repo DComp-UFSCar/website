@@ -11,9 +11,9 @@
   <?php include "header.php"; ?>
 </head>
 <body>
-  <?php include "menu.php" ?>
+  <?php session_start(); include "menu.php" ?>
   <div id="content">
-    <header><?= $course->abrev ?></header>
+    <header><?= $course->abrev ?><?php include "login.php" ?></header>
     <div id="main-content" class="course-content">
       <div class="course-info">
         <h1><?= $course->nome ?></h1>
@@ -58,7 +58,7 @@
         <div class="oferta">
           <div class="oferta-title">Professor:</div>
           <div class="oferta-content">
-            <a href="professor.php?id=<?= $oferta['professor']['cod'] ?>">
+            <a href="professor.php?id=<?= $oferta['professor']['idprofessor'] ?>">
               <?= $oferta['professor']['nome'] ?>
             </a>
           </div><br>

@@ -5,7 +5,7 @@
 
     public static function getAll() {
       $db = new Db();
-      $query = "SELECT * FROM professor WHERE ativo = 1 ORDER BY nome";
+      $query = "SELECT * FROM professor ORDER BY nome";
       return $db->select($query);
     }
   }
