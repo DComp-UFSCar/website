@@ -16,7 +16,7 @@
   $_SESSION['idOferta'] = $oferta['codOferta'];
 
   if ($result == 1){
-      header("Location: ../horarios.php");
+      header("Location: ../settings/horarios.php");
   }else{
       echo "<script>alert('erro sql')</script>";
 

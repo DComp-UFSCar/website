@@ -12,7 +12,7 @@
   $result = $db->query("UPDATE nucleo set nome = ".$nome." WHERE id = " .$id);
 
   if ($result == 1){
-      header("Location: ../nucleoConfig.php");
+      header("Location: ../settings/nucleoConfig.php");
   }else{
       echo "<script>alert('erro sql')</script>";
 

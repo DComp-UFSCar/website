@@ -14,7 +14,7 @@
   $result = $db->query("INSERT INTO oferta (codProf, codMat, turma, ano, semestre) VALUES (".$idProf.", ".$idMat.", ".$turma.", ".$ano.", ".$semestre.")");
 
     if ($result == 1){
-      header("Location: ../ofertaConfig.php");
+      header("Location: ../settings/ofertaConfig.php");
     }else{
       echo "<script>alert('erro sql')</script>";
     }

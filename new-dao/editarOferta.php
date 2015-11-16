@@ -17,7 +17,7 @@
   $result = $db->query("UPDATE oferta set codMat = ".$idMat.", codProf = ".$idProf.", turma = ".$turma.", ano = ".$ano.", semestre = ".$sem." WHERE id = ".$idOferta);
 
   if ($result == 1){
-      header("Location: ../ofertaConfig.php");
+      header("Location: ../settings/ofertaConfig.php");
   }else{
       echo "<script>alert('erro sql')</script>";
 
