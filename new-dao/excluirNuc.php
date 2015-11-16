@@ -9,7 +9,7 @@
   $result = $db->query("DELETE FROM nucleo WHERE id = ".$id);
 
   if ($result == 1){
-    header("Location: ../settings/nucleoConfig.php");
+    header("Location: ../nucleoConfig.php");
   }else{
      echo "<script>alert('erro sql')</script>";
   } 

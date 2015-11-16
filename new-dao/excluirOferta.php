@@ -15,7 +15,7 @@
   $result = $db->query("DELETE FROM oferta WHERE id = ".$id);
 
   if ($result == 1){
-    header("Location: ../settings/ofertaConfig.php");
+    header("Location: ../ofertaConfig.php");
   }else{
      echo "<script>alert('erro sql')</script>";
   } 

@@ -21,7 +21,7 @@
   $resultOfertaHorario = $db->query("INSERT INTO ofertaHorario VALUES (".$idHorario['id'].", ".$_SESSION['idOferta'].")");
 
     if ($result == 1 && $resultOfertaHorario == 1){
-      header("Location: ../settings/horarios.php");
+      header("Location: ../horarios.php");
     }else{
       echo "<script>alert('erro sql')</script>";
     }

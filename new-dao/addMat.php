@@ -35,7 +35,7 @@
 
   if ($result == 1){
     echo "<script>alert('materia criado com sucesso')</script>";
-    header("Location: ../settings/matConfig.php");
+    header("Location: ../matConfig.php");
   }else{
     echo "<script>alert('erro sql')</script>";
   }

@@ -35,7 +35,7 @@
 
   if ($result == 1 && $resultUser == 1){
       $_SESSION['editado'] = 1;
-      header("Location: ../settings/profConfig.php");
+      header("Location: ../profConfig.php");
   }else{
       echo "<script>alert('erro sql')</script>";
 

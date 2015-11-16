@@ -26,7 +26,7 @@
 
   if ($result == 1){
       $_SESSION['editado'] = 1;
-      header("Location: ../settings/matConfig.php");
+      header("Location: ../matConfig.php");
   }else{
       echo "<script>alert('erro sql')</script>";
 

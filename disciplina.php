@@ -1,5 +1,4 @@
 <?php
-  session_start();
   include "class/course.php";
 
   $id = $_GET["id"];
@@ -12,7 +11,7 @@
   <?php include "header.php"; ?>
 </head>
 <body>
-  <?php include "menu.php" ?>
+  <?php session_start(); include "menu.php" ?>
   <div id="content">
     <header><?= $course->abrev ?><?php include "login.php" ?></header>
     <div id="main-content" class="course-content">

@@ -6,7 +6,7 @@
           echo "<a href = 'aux-files/logout.php'> Logout </a>";
       	}else{
       ?>
-      <form  action = "settings/controle.php" method = "post">
+      <form  action = "controle.php" method = "post">
         <input type = "text" size = "10" placeholder = "Usuario" name = "user">
         <input type = "password" size = "10" placeholder = "senha" name ="pass">
         <input type = "submit" value = "Logar">
