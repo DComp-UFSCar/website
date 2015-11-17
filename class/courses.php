@@ -5,7 +5,7 @@
 
     public static function getCoursesByPerfil() {
       $db = new Db();
-      $query = "SELECT cod, cod2, nome, codDisciplina, perfil, codNucleo, optativa FROM materia WHERE ativo = 1 ORDER BY perfil, nome";
+      $query = "SELECT id, nome, codigoEscolar, abrev, perfil, codNucleo FROM materia ORDER BY perfil, nome";
       $arr = $db->select($query);
       $result = array();
 
@@ -23,20 +23,19 @@
 
     public static function getOptinalCourses() {
       $db = new Db();
-      $query = "SELECT cod, cod2, nome, codDisciplina, perfil, codNucleo FROM materia WHERE ativo = 1 and optativa = 1 ORDER BY nome";
-
+      $query = "SELECT id, nome, codigoEscolar, abrev, perfil, codNucleo FROM materia WHERE optativa = 1 ORDER BY nome";
       return $db->select($query);
     }
 
     public static function getAllCourses() {
       $db = new Db();
-      $query = "SELECT cod, cod2, nome, codDisciplina, perfil, codNucleo FROM materia WHERE ativo = 1 ORDER BY perfil, nome";
+      $query = "SELECT id, nome, codigoEscolar, abrev, perfil, codNucleo FROM materia ORDER BY perfil, nome";
       return $db->select($query);
     }
 
     public static function getAllPrerequisites() {
       $db = new Db();
-      $query = "SELECT codMatPos as course, codMatPre as pre FROM prerequisito WHERE ativo = 1";
+      $query = "SELECT codMat as course, codMatPre as pre FROM prerequisito";
       return $db->select($query);
     }
   }

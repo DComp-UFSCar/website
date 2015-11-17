@@ -1,4 +1,4 @@
-<?php include "class/courses.php" ?>
+<?php include "class/courses.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>

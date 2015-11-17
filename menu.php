@@ -3,6 +3,7 @@
   $menuDisciplinas = "";
   $menuRequisitos  = "";
   $menuProfessores = "";
+  $menuMapa = "";
 
   if (isset($menuSelected)) {
     switch ($menuSelected) {
@@ -14,6 +15,9 @@
         break;
       case 3:
         $menuProfessores = "selected";
+        break;
+      case 4:
+        $menuMapa = "selected";
         break;
     }
   } else {
@@ -32,10 +36,12 @@
     <a href="prerequisitos.php">
       <li class="<?= $menuRequisitos ?>">Pré-requisitos</li>
     </a>
-    <a href="professores.php">
+    <a href="professores.php" >
       <li class="<?= $menuProfessores ?>">Professores</li>
     </a>
-    <!-- <li>Atividades Desenvolvidas</li> -->
+    <a href="mapa.php">
+      <li class="<?= $menuMapa ?>">Mapa</li>
+    </a>
     <a href="http://dcomp.sorocaba.ufscar.br/wp-content/docs/projetoPedagogicoBCCS-2010.pdf" target="_blank">
       <li>Projeto Pedagógico (PDF)</li>
     </a>

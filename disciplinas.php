@@ -14,7 +14,7 @@
           <header>Perfil <?= $perfil ?></header>
           <ul class="course-list">
             <?php foreach ($perfilData as $course) { ?>
-              <a href="disciplina.php?id=<?= $course['cod'] ?>">
+              <a href="disciplina.php?id=<?= $course['id'] ?>">
                 <li>
                   <?= $course['nome'] ?>
                   <?php if ($course['optativa'] == 1) { ?>

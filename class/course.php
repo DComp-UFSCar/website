@@ -17,16 +17,16 @@
     public function loadById($id) {
       $db = new Db();
       $id = $db->quote($id);
-      $materia = $db->selectOne("SELECT * FROM materia WHERE cod = ".$id);
+      $materia = $db->selectOne("SELECT * FROM materia WHERE id = ".$id);
 
       $this->id = $id;
-      $this->codigo   = $materia["cod2"];
-      $this->abrev    = $materia["codDisciplina"];
+      $this->codigo   = $materia["codigoEscolar"];
+      $this->abrev    = $materia["abrev"];
       $this->nome     = $materia["nome"];
       $this->ementa   = $materia["ementa"];
       $this->objetivo = $materia["objetivo"];
-      $this->credTeorico = $materia["nCreditoTeorico"];
-      $this->credPratico = $materia["nCreditopratico"];
+      $this->credTeorico = $materia["nCreditosTeoricos"];
+      $this->credPratico = $materia["nCreditosPraticos"];
 
       $this->loadPrerequisitos();
       $this->loadOfertas();
@@ -35,18 +35,18 @@
     public function loadPrerequisitos() {
       $db = new Db();
       $id = $this->id;
-      $this->prerequisitos = $db->select("SELECT m.cod, m.nome FROM prerequisito p, materia m WHERE p.codMatPos = ".$id." AND m.cod = p.codMatPre");
+      $this->prerequisitos = $db->select("SELECT m.id, m.nome FROM prerequisito p, materia m WHERE p.codMat = ".$id." AND m.id = p.codMatPre");
     }
 
     public function loadOfertas() {
       $db = new Db();
       $id = $this->id;
-      $this->ofertas = $db->select("SELECT * FROM ofertamateria WHERE ativo = 1 AND codMat = ".$id);
+      $this->ofertas = $db->select("SELECT * FROM oferta WHERE codMat = ".$id);
 
       for ($i = 0; $i < count($this->ofertas); $i++) {
-        $codOferta = $this->ofertas[$i]["cod"];
-        $this->ofertas[$i]['locais']    = $db->select("SELECT ofertahorario.codHorario, ofertahorario.codOferta, horario.dia, horario.inicio, horario.fim, horario.local FROM ofertahorario, horario WHERE ofertahorario.codOferta = '".$codOferta."' AND ofertahorario.codHorario = horario.cod");
-        $this->ofertas[$i]['professor'] = $db->selectOne("SELECT cod, nome, pagPessoal FROM professor WHERE ativo = 1 AND cod = ".$this->ofertas[$i]['codProf']);
+        $codOferta = $this->ofertas[$i]["id"];
+        $this->ofertas[$i]['locais']    = $db->select("SELECT ofertahorario.codHorario, ofertahorario.codOferta, horario.dia, horario.inicio, horario.fim, horario.local FROM ofertahorario, horario WHERE ofertahorario.codOferta = ".$codOferta." AND ofertahorario.codHorario = horario.id");
+        $this->ofertas[$i]['professor'] = $db->selectOne("SELECT idprofessor, nome FROM professor WHERE idprofessor = ".$this->ofertas[$i]['codProf']);
       }
     }
   }
