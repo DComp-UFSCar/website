@@ -16,6 +16,9 @@ function drawGraph(error, data) {
 
   var graphWidth = nested_data.length * perfilColumnWidth + 20;
   var graphHeigth = maxCoursesPerPerfil * courseLineHeight + 80;
+  document.querySelector('#main-content').style.width = (graphWidth + 90) + "px";
+  document.querySelector('section').style.width = (graphWidth + 30) + "px";
+  document.querySelector('.graph').style.height = graphHeigth + "px";
 
   var graphLinks = d3
     .select('.graph')

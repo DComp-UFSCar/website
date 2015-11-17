@@ -1,20 +1,32 @@
 <?php
+  $menuHome = "";
   $menuDisciplinas = "";
   $menuRequisitos  = "";
   $menuProfessores = "";
 
-  if (isset($menuSelected) && $menuSelected == 3) {
-    $menuProfessores = "selected";
-  } else if (isset($menuSelected) && $menuSelected == 2) {
-    $menuRequisitos = "selected";
+  if (isset($menuSelected)) {
+    switch ($menuSelected) {
+      case 1:
+        $menuDisciplinas = "selected";
+        break;
+      case 2:
+        $menuRequisitos = "selected";
+        break;
+      case 3:
+        $menuProfessores = "selected";
+        break;
+    }
   } else {
-    $menuDisciplinas = "selected";
+    $menuHome = "selected";
   }
 ?>
 <div id="menu">
   <h1>BCCS</h1>
-  <ul>
+  <ul class="main-menu">
     <a href="index.php">
+      <li class="<?= $menuHome ?>">Sobre</li>
+    </a>
+    <a href="disciplinas.php">
       <li class="<?= $menuDisciplinas ?>">Disciplinas</li>
     </a>
     <a href="prerequisitos.php">
@@ -26,6 +38,17 @@
     <!-- <li>Atividades Desenvolvidas</li> -->
     <a href="http://dcomp.sorocaba.ufscar.br/wp-content/docs/projetoPedagogicoBCCS-2010.pdf" target="_blank">
       <li>Projeto Pedagógico (PDF)</li>
+    </a>
+  </ul>
+  <ul class="sub-menu">
+    <a href="api.php">
+      <li>API</li>
+    </a>
+    <a href="http://github.com/UFSCar/website">
+      <li>GitHub</li>
+    </a>
+    <a href="admin/">
+      <li>Admin</li>
     </a>
   </ul>
 </div>

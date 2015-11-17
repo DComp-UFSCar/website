@@ -7,6 +7,10 @@
   color: #696969;
 }
 
+.graph {
+  margin: 0 15px;
+}
+
 .graphLinks {
   position: absolute;
   z-index: 0;

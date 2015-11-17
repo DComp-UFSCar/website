@@ -11,8 +11,10 @@
   <div id="content">
     <header>Pré-requisitos</header>
     <div id="main-content">
-      <p class="help-text">Selecione uma disciplina para ver seus pré-requisitos</p>
-      <div class="graph"></div>
+      <section class="graph-section">
+        <header>Selecione uma disciplina para ver seus pré-requisitos</header>
+        <div class="graph"></div>
+      </section>
     </div>
   </div>
 </body>
