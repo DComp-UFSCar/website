@@ -11,65 +11,64 @@
   <?php include "header.php"; ?>
 </head>
 <body>
-  <?php include "menu.php" ?>
+  <?php $menuSelected = 1; include "menu.php" ?>
   <div id="content">
     <header><?= $course->abrev ?></header>
-    <div id="main-content" class="course-content">
-      <div class="course-info">
-        <h1><?= $course->nome ?></h1>
-      </div>
-      <div class="course-info">
-        <div class="course-info-title">Código da Disciplina</div>
-        <div class="course-info-content"><?= $course->codigo ?></div>
-      </div>
-      <div class="course-info">
-        <div class="course-info-title">Ementa</div>
-        <div class="course-info-content"><?= $course->ementa ?></div>
-      </div>
-      <div class="course-info">
-        <div class="course-info-title">Objectivo</div>
-        <div class="course-info-content"><?= $course->objetivo ?></div>
-      </div>
-      <div class="course-info">
-        <div class="course-info-title">Créditos Teóricos</div>
-        <div class="course-info-content"><?= $course->credTeorico ?></div>
-      </div>
-      <div class="course-info">
-        <div class="course-info-title">Créditos Práticos</div>
-        <div class="course-info-content"><?= $course->credPratico ?></div>
-      </div>
-      <div class="course-info">
-        <div class="course-info-title">Pré-requisitos</div>
-        <div class="course-info-content">
-          <?php if (count($course->prerequisitos) > 0) { ?>
-            <ul class="lista-prerequisitos">
-              <?php foreach ($course->prerequisitos as $requisito) { ?>
-                <a href="disciplina.php?id=<?= $requisito['cod'] ?>">
-                  <li><?= $requisito['nome'] ?></li>
-                </a>
-              <?php } ?>
-            </ul>
-          <?php } else { ?>
-            Nenhum
-          <?php } ?>
+    <div id="main-content">
+      <section>
+        <header><?= $course->nome ?></header>
+        <div class="course-info">
+          <div class="course-info-title">Código da Disciplina</div>
+          <div class="course-info-content"><?= $course->codigo ?></div>
         </div>
-      </div>
+        <div class="course-info">
+          <div class="course-info-title">Ementa</div>
+          <div class="course-info-content"><?= $course->ementa ?></div>
+        </div>
+        <div class="course-info">
+          <div class="course-info-title">Objectivo</div>
+          <div class="course-info-content"><?= $course->objetivo ?></div>
+        </div>
+        <div class="course-info">
+          <div class="course-info-title">Créditos Teóricos</div>
+          <div class="course-info-content"><?= $course->credTeorico ?></div>
+        </div>
+        <div class="course-info">
+          <div class="course-info-title">Créditos Práticos</div>
+          <div class="course-info-content"><?= $course->credPratico ?></div>
+        </div>
+        <div class="course-info">
+          <div class="course-info-title">Pré-requisitos</div>
+          <div class="course-info-content">
+            <?php if (count($course->prerequisitos) > 0) { ?>
+              <ul class="lista-prerequisitos">
+                <?php foreach ($course->prerequisitos as $requisito) { ?>
+                  <a href="disciplina.php?id=<?= $requisito['cod'] ?>">
+                    <li><?= $requisito['nome'] ?></li>
+                  </a>
+                <?php } ?>
+              </ul>
+            <?php } else { ?>
+              Nenhum
+            <?php } ?>
+          </div>
+        </div>
+      </section>
       <?php foreach ($course->ofertas as $oferta) { ?>
-        <div class="oferta">
+        <section class="oferta">
+          <header>2015 / <?= $oferta['semestre'] ?></header>
           <div class="oferta-title">Professor:</div>
           <div class="oferta-content">
             <a href="professor.php?id=<?= $oferta['professor']['cod'] ?>">
               <?= $oferta['professor']['nome'] ?>
             </a>
           </div><br>
-          <div class="oferta-title">Semestre:</div>
-          <div class="oferta-content">2015 / <?= $oferta['semestre'] ?></div><br>
 
           <?php foreach ($oferta['locais'] as $local) { ?>
             <div class="oferta-local"><?= $local['local'] ?></div>
             <div class="oferta-horario"><?= $local['dia'] ?> - <?= $local['inicio'] ?> às <?= $local['fim'] ?></div>
           <?php } ?>
-        </div>
+        </section>
       <?php } ?>
     </div>
   </div>

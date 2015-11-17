@@ -18,26 +18,28 @@
       <h1 class="professor-name"><?= $professor->nome ?></h1>
     </header>
     <div id="main-content" class="professor-main">
-      <div class="professor-info">
-        <div class="professor-info-title">Página Pessoal</div>
-        <div class="professor-info-content">
-          <a href="http://<?= $professor->site ?>">
-            <?= $professor->site ?>
-          </a>
+      <section>
+        <header>Sobre</header>
+        <div class="professor-info">
+          <div class="professor-info-title">Página Pessoal</div>
+          <div class="professor-info-content">
+            <a href="http://<?= $professor->site ?>">
+              <?= $professor->site ?>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="professor-info">
-        <div class="professor-info-title">Área de Atuação</div>
-        <div class="professor-info-content"><?= $professor->area ?></div>
-      </div>
+        <div class="professor-info">
+          <div class="professor-info-title">Área de Atuação</div>
+          <div class="professor-info-content"><?= $professor->area ?></div>
+        </div>
+      </section>
       <?php foreach ($professor->courses as $course) { ?>
-        <div class="oferta">
-          <div class="oferta-title">Disciplina:</div>
-          <div class="oferta-content">
+        <section class="oferta">
+          <header>
             <a href="disciplina.php?id=<?= $course['codMat'] ?>">
               <?= $course['nome'] ?>
             </a>
-          </div><br>
+          </header>
           <div class="oferta-title">Semestre:</div>
           <div class="oferta-content">2015 / <?= $course['semestre'] ?></div><br>
 
@@ -45,7 +47,7 @@
             <div class="oferta-local"><?= $local['local'] ?></div>
             <div class="oferta-horario"><?= $local['dia'] ?> - <?= $local['inicio'] ?> às <?= $local['fim'] ?></div>
           <?php } ?>
-        </div>
+        </section>
       <?php } ?>
     </div>
   </div>

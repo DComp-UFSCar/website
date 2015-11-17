@@ -7,7 +7,8 @@ body {
 body {
   min-height: 400px;
   margin: 0;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Nobile', sans-serif;
+  background-color: #f5f5f5;
 }
 
 #menu {
@@ -17,7 +18,6 @@ body {
   position: fixed;
   left: 0;
   background-color: #333;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
   z-index: 100;
   transition: left 200ms ease-out;
 }
@@ -28,34 +28,61 @@ body {
   text-align: center;
 }
 
-#menu ul {
+#menu .main-menu {
   margin: 3em 0;
   padding: 0;
   list-style: none;
 }
 
-#menu ul a {
+#menu .main-menu a {
   text-decoration: none;
 }
 
-#menu ul li {
+#menu .main-menu li {
   width: 100%;
   height: 3em;
   line-height: 3em;
   font-size: 0.9em;
-  font-weight: 300;
+  font-weight: normal;
   padding: 0 1em;
   color: #fff;
   cursor: pointer;
   box-sizing: border-box;
 }
 
-#menu ul li:hover {
+#menu .main-menu li:hover {
   background-color: #404040;
 }
 
-#menu ul li.selected {
-  background-color: #000;
+#menu .main-menu li.selected {
+  background-color: #EB7F00;
+}
+
+#menu .sub-menu {
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#menu .sub-menu a {
+  text-decoration: none;
+}
+
+#menu .sub-menu li {
+  display: inline-block;
+  font-size: 0.9em;
+  font-weight: normal;
+  color: #fff;
+  padding: 0.5em;
+}
+
+#menu .sub-menu li:hover {
+  text-decoration: underline;
 }
 
 .toggleMenu {
@@ -64,7 +91,7 @@ body {
   position: fixed;
   z-index: 11;
   cursor: pointer;
-  color: #fff;
+  color: #333;
 }
 
 .backdrop {
@@ -94,22 +121,29 @@ body {
   left: 300px;
   right: 0;
   line-height: 3.5em;
-  text-align: center;
-  background-color: #EB7F00;
-  color: #fff;
+  background-color: #FFF;
+  color: #000;
   font-size: 1.1em;
-  font-weight: 300;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+  font-weight: bold;
   z-index: 10;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding: 0 1em;
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
 }
 
 #main-content {
   width: 100%;
   padding: 3.85em 0 1em;
-  font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
+}
+
+#main-content section {
+  margin: 30px;
+  background-color: #FFF;
+  border: 1px solid #dddddd;
+  overflow: auto;
 }
 
 #main-content section header {
@@ -117,28 +151,29 @@ body {
   height: 3.5em;
   position: relative;
   line-height: 3.5em;
-  background-color: #1695A3;
-  color: #fff;
-  font-family: 'Roboto Slab', serif;
+  color: #000;
   font-size: 0.9em;
-  font-weight: 300;
-  text-align: center;
-  padding: 0 2em;
+  font-weight: 700;
+  padding: 0 1.56em;
   box-sizing: border-box;
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 1.09em;
+  text-transform: uppercase;
 }
 
-#main-content section ul {
+#main-content section .course-list {
   position: relative;
   margin: 0;
   padding: 0;
   list-style: none;
+  margin-bottom: 1em;
 }
 
-#main-content section ul a {
+#main-content section .course-list a {
   text-decoration: none;
 }
 
-#main-content section ul li {
+#main-content section .course-list li {
   width: 100%;
   height: 3.5em;
   line-height: 3.5em;
@@ -153,13 +188,8 @@ body {
   text-overflow: ellipsis;
 }
 
-#main-content section ul li:hover {
-  background-color: #ACF0F2;
-}
-
-.course-content {
-  padding-right: 1em !important;
-  padding-left: 1em !important;
+#main-content section .course-list li:hover {
+  background-color: #dddddd;
 }
 
 .course-info {
@@ -167,6 +197,7 @@ body {
   padding-top: 1em;
   box-sizing: border-box;
   position: relative;
+  margin: 1em 1.5em;
 }
 
 .course-info-title {
@@ -191,10 +222,6 @@ body {
 }
 
 .oferta {
-  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
-  padding: 1em;
-  margin: 1em 0;
-  box-sizing: border-box;
   font-size: 0.9em;
 }
 
@@ -202,6 +229,7 @@ body {
 .oferta-content {
   display: inline-block;
   line-height: 1.5em;
+  margin: 1em 1.5em;
 }
 
 .oferta-title {
@@ -209,16 +237,24 @@ body {
   margin-right: 0.3em;
 }
 
+.oferta-content {
+  margin-left: 0.3em;
+}
+
 .oferta-content a {
   color: #555;
 }
 
 .oferta-local {
-  margin-top: 1em;
+  margin: 1em 1.5em 0.5em;
+}
+
+.oferta-horario {
+  margin: 0.5em 1.5em 1.5em;
 }
 
 .professors-main {
-  padding-top: 5em !important;
+  padding-top: 6em !important;
   text-align: center;
 }
 
@@ -245,12 +281,12 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  border: 1px solid #ddd;
   border-radius: 120px;
 }
 
 .professor h2 {
   width: 100%;
-  font-family: 'Roboto Slab', serif;
   font-size: 0.9em;
   font-weight: 500;
   margin: 0.5em 0;
@@ -290,18 +326,16 @@ body {
   background-position: center center;
   z-index: 15;
   border-radius: 150px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.3);
 }
 
 .professor-main {
   padding-top: 16em !important;
-  padding-left: 5em !important;
-  padding-right: 5em !important;
   box-sizing: border-box;
 }
 
 .professor-info {
   font-size: 0.9em;
+  margin: 1em 1.5em;
 }
 
 .professor-info-title {
@@ -317,6 +351,63 @@ body {
   text-align: justify;
   color: #555;
   padding-bottom: 1em;
+}
+
+.text-content {
+  font-size: 0.9em;
+  margin: 1.5em;
+  line-height: 1.7em;
+}
+
+.text-content p:last-child {
+  margin-bottom: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tbody th {
+  text-align: left;
+  border: 1px solid #DDD;
+  padding: 0.7em 1.3em;
+}
+
+table tbody td {
+  border: 1px solid #DDD;
+  padding: 0.7em 1.3em;
+}
+
+.course-info-table {
+  margin-top: -1.1em;
+  font-size: 0.9em;
+}
+
+.course-info-table tr:first-child th {
+  border-width: 0 1px 1px 0;
+}
+
+.course-info-table tr:last-child th {
+  border-width: 1px 1px 0 0;
+}
+
+.course-info-table tr th {
+  border-width: 1px 1px 1px 0;
+  padding: 0.8em 1.5em;
+}
+
+.course-info-table tr:first-child td {
+  border-width: 0 0 1px 1px;
+}
+
+.course-info-table tr:last-child td {
+  border-width: 1px 0 0 1px;
+}
+
+.course-info-table tr td {
+  border-width: 1px 0 1px 1px;
+  padding: 0.8em 1.5em;
 }
 
 @media (max-width: 768px) {
@@ -359,7 +450,5 @@ body {
 
   .professor-main {
     padding-top: 15em !important;
-    padding-left: 1em !important;
-    padding-right: 1em !important;
   }
 }
